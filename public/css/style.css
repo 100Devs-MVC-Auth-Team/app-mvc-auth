@@ -32,7 +32,12 @@ h1{
     background-color: lightblue;
 }
 
-#forms input{
+.container.left{
+    margin-left: 0;
+    padding: 0;
+}
+
+#forms input,button{
     display: block; 
     width: 100%;
     padding: 8px;
@@ -41,11 +46,22 @@ h1{
     border: 1px solid rgb(77, 99, 106);
 }
 
-#forms input[type='submit']{
+#forms input[type='submit'], button[type='submit']{
     background-color: cadetblue;
     color: white;
 } 
 
+#forms span{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: .9rem;
+    color: cadetblue;
+}
+
+#forms a{
+    color: cadetblue;
+}
 
 .completed{
     text-decoration: line-through;
