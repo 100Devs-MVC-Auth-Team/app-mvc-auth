@@ -1,14 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+header{
     background-color: lightblue;
+    text-align: center;
+    padding: 1rem;
 }
 
 h1{
-    color: red;
+    color: cadetblue;
+    text-align: center;
 }
+
+.container{
+    margin: auto;
+    width: 500px;
+    overflow: auto;
+    padding: 3rem 2rem;
+}
+
+#forms{
+    padding: 2rem;
+    background-color: lightblue;
+}
+
+#forms input{
+    display: block; 
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(77, 99, 106);
+}
+
+#forms input[type='submit']{
+    background-color: cadetblue;
+    color: white;
+} 
+
+
 .completed{
     text-decoration: line-through;
     color: gray;
 }
+
+
 .not{
     text-decoration: underline;
 }

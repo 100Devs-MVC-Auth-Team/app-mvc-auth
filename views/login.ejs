@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body>  
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -18,10 +18,18 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    
+    <section class="container">
+        <form id="forms" action="/login" method="POST">
+            <h1>Login</h1>
+            <div>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <input type="submit">
+        </form>
+    </section>
 </body>
 </html>
