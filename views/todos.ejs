@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <title>ToDos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Todos</h1>
-    <ul>
+    <ul> 
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+    <li class='todoItem' data-id='<%=el._id%>'>
+        <iconify-icon inline
+            icon="line-md:chevron-double-right"
+            style="color:rgb(158, 103, 186); font-size: 15px"
+            height="2em"
+        ></iconify-icon>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
+                <span class='del'> 
+                    <iconify-icon inline
+                        icon="fluent-emoji-high-contrast:partying-face"
+                        style="color:rgb(158, 103, 186); font-size: 15px"
+                        height="2em"
+                    ></iconify-icon>
+                </span> 
+           </li>
     <% }) %>    
     </ul>
 
