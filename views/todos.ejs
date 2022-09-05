@@ -8,9 +8,11 @@
     <title>ToDos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Todos</h1>
-    <ul> 
+<body class="todos-bg">
+    <header>
+        <h1>Todos</h1>
+    </header>
+    <ul>
     <% todos.forEach( el => { %>
     <li class='todoItem' data-id='<%=el._id%>'>
         <iconify-icon inline
@@ -30,16 +32,16 @@
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-    <section class="container left">
+    <h2><%= user.userName %> has <%= left %> things left to do</h2>
+    <section class="container todos">
         <form id="forms" action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
     </section>
-
-    <a href="/logout">Logout</a>
-
+    <section class="page-logout-link">
+        <span><a href="/logout">Logout</a></span>
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>
