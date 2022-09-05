@@ -3,10 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+.test{
+    background-color: red;
+} 
 
-body{
+html, body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    width: 100%;
 }
 
 .todos-bg{
@@ -17,16 +21,15 @@ header{
     background-color: lightblue;
     text-align: center;
     padding: 1rem;
+    width: 100%;
 }
 
-h1{
+h1, h2{
     color: cadetblue;
     text-align: center;
 }
 
 h2{
-    text-align: center;
-    color: cadetblue;
     text-decoration: overline;
 }
 
@@ -88,7 +91,7 @@ img{
     color: cadetblue;
 }
 
-.page-logout-link a{
+.bottom-link a{
     display: block;
     text-align: center;
     color:rgb(59, 114, 116); 
@@ -103,6 +106,7 @@ ul{
     margin: 1rem auto;
     margin-bottom: 2rem;
     border-radius: 5px;
+    list-style: none;
 }
 
 .completed{
@@ -110,7 +114,14 @@ ul{
     color: gray;
 }
 
-
 .not{
     text-decoration: underline;
 }
+
+
+@media only screen and (max-width: 500px) {
+    .container {
+      width: 100%;
+    }
+  } 
+  
