@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <title>Your Todos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <h1>Todos</h1>
+<body class="todos-bg">
+    <header>
+        <h1>Todos</h1>
+    </header>
     <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+    <li class='todoItem' data-id='<%=el._id%>'>
+        <iconify-icon inline
+            icon="line-md:chevron-double-right"
+            style="color:cadetblue; font-size: 15px"
+            height="2em"
+        ></iconify-icon>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
+                <span class='del'> 
+                    <iconify-icon inline
+                        icon="fluent-emoji-high-contrast:partying-face"
+                        style="color:cadetblue; font-size: 15px"
+                        height="2em"
+                    ></iconify-icon>
+                </span> 
+           </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
-    <section class="container left">
+    <h2><%= user.userName %> has <%= left %> things left to do</h2>
+    <section class="container todos">
         <form id="forms" action="/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <input type="submit">
         </form>
     </section>
-
-    <a href="/logout">Logout</a>
-
+    <section class="bottom-link">
+        <span><a href="/logout">Logout</a></span>
+    </section>
     <script src="js/main.js"></script>
 </body>
 </html>
