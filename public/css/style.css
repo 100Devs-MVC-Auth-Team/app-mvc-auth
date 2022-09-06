@@ -115,6 +115,10 @@ ul{
     text-decoration: underline;
 }
 
+.quote{
+    text-align: center;
+    color:rgb(59, 114, 116); 
+}
 
 @media only screen and (max-width: 500px) {
     .container {
