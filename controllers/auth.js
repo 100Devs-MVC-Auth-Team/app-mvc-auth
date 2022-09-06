@@ -15,7 +15,6 @@ const User = require('../models/User')
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
-  
     if (validationErrors.length) {
       req.flash('errors', validationErrors)
       return res.redirect('/login')
@@ -61,22 +60,30 @@ const User = require('../models/User')
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
     if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
-  
+    //Gives error when space found in userName field
+    if (validator.contains(req.body.userName, " ")) validationErrors.push({ msg: 'Username cannot contain spaces.' })
+
     if (validationErrors.length) {
       req.flash('errors', validationErrors)
       return res.redirect('../signup')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
   
+    /*
+    userName_lower creates case-insensitive queries
+    preventing the same username being used twice
+    */
+
     const user = new User({
       userName: req.body.userName,
+      userName_lower: req.body.userName.toLowerCase(),
       email: req.body.email,
       password: req.body.password
     })
   
     User.findOne({$or: [
       {email: req.body.email},
-      {userName: req.body.userName}
+      {userName_lower: req.body.userName.toLowerCase()}
     ]}, (err, existingUser) => {
       if (err) { return next(err) }
       if (existingUser) {
