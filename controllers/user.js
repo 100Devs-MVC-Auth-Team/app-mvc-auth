@@ -1,6 +1,6 @@
 const Todo = require('../models/Todo')
 const User = require('../models/User')
-
+const Email = require('../models/Email')
 module.exports = {
     getUser: async (req,res)=>{
         console.log(req.params.userName)

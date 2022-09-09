@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <title>Your Todos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!--needs inline style for proper email or plain to be printable-->
+<body class="todos-bg">
+    <header>
+        <h1>Todos</h1>
+    </header>
+    <ul>
+    <% todos.forEach( el => { %>
+    <li class='todoItem' data-id='<%=el._id%>'>
+        <iconify-icon inline
+            icon="line-md:chevron-double-right"
+            style="color:cadetblue; font-size: 15px"
+            height="2em"
+        ></iconify-icon>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del'> 
+                    <iconify-icon inline
+                        icon="fluent-emoji-high-contrast:partying-face"
+                        style="color:cadetblue; font-size: 15px"
+                        height="2em"
+                    ></iconify-icon>
+                </span> 
+           </li>
+    <% }) %>    
+    </ul>
+
+    <h2><%= user.userName %> has <%= left %> things left to do</h2>
+    <p>Get it done!</p>
+
+    <section class="bottom-link">
+        <span><a href="/todos.ejs">Back to ToDos</a></span>
+        <span>Email My ToDo List to <a class="emailTo" href="<%= user.email %>">Myself</a> Or<input class="emailTo" type="email" name="" id="sendTo"></span>
+    </section>
+    <script src="js/email.js"></script>
+</body>
+</html>
